@@ -176,7 +176,7 @@ class ReadFileFrame(customtkinter.CTkFrame, fileLists):
         logger.info("Total Frame Count => " + str(totalframe))
 
         for index, file in enumerate(fileLists.List):
-            filename = os.path.basename(file)
+            filename = os.path.splitext(os.path.basename(file))[0]
 
             logger.info("Create a file list.")
             logger.info("No." + str(index+1) + " file => " + file)
@@ -184,6 +184,7 @@ class ReadFileFrame(customtkinter.CTkFrame, fileLists):
             video = cv2.VideoCapture(file)
             width = int(video.get(cv2.CAP_PROP_FRAME_WIDTH))
             height = int(video.get(cv2.CAP_PROP_FRAME_HEIGHT))
+            framerate = int(video.get(cv2.CAP_PROP_FPS))
             framecount = int(video.get(cv2.CAP_PROP_FRAME_COUNT))
 
             logger.info("Total number of frame rate for the No." + str(index+1) + " video => " + str(framecount))
@@ -193,7 +194,7 @@ class ReadFileFrame(customtkinter.CTkFrame, fileLists):
 
             logger.info("Output directory => " + fileLists.output_dir)
 
-            output_video = cv2.VideoWriter(fileLists.output_dir + "/" + filename, cv2.VideoWriter_fourcc(*'mp4v'),30,(new_width, new_height))
+            output_video = cv2.VideoWriter(fileLists.output_dir + "/" + filename + ".mp4", cv2.VideoWriter_fourcc(*'mp4v'),framerate,(new_width, new_height))
 
             logger.info("Start exporting.")
 
