@@ -184,7 +184,7 @@ class ReadFileFrame(customtkinter.CTkFrame, fileLists):
             video = cv2.VideoCapture(file)
             width = int(video.get(cv2.CAP_PROP_FRAME_WIDTH))
             height = int(video.get(cv2.CAP_PROP_FRAME_HEIGHT))
-            framerate = int(video.get(cv2.CAP_PROP_FPS))
+            framerate = float(video.get(cv2.CAP_PROP_FPS))
             framecount = int(video.get(cv2.CAP_PROP_FRAME_COUNT))
 
             logger.info("Total number of frame rate for the No." + str(index+1) + " video => " + str(framecount))
