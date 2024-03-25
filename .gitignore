@@ -1,2 +1,5 @@
 .venv/
 logfile.log
+MOVIE RESIZER.spec
+dist/
+build/

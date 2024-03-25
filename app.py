@@ -75,7 +75,7 @@ class SelectQuality(customtkinter.CTkFrame):
             radiobutton.grid(row=i + 1, column=0, padx=10, pady=(10,10), sticky="w")
             self.radiobuttons.append(radiobutton)
         
-        self.radiobuttons[0].select()
+        self.radiobuttons[1].select()
 
     def get(self):
         return self.variable.get()
@@ -113,7 +113,7 @@ class ReadFileFrame(customtkinter.CTkFrame, fileLists):
         self.button_select.grid(row=1, column=1, padx=10, pady=(0,10))
 
         # 画質選択
-        self.selectQuality_frame = SelectQuality(self, "画質選択", values=["144p","240p","360p","720p"])
+        self.selectQuality_frame = SelectQuality(self, "画質選択", values=["144p","240p","360p"])
         self.selectQuality_frame.grid(row=2, column=0, columnspan=2, padx=(10, 10), pady=(10, 10), sticky="nsew")
 
         # 実行ボタン
