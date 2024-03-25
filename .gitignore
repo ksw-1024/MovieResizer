@@ -1,5 +1,11 @@
 .venv/
+.venv3-11/
 logfile.log
 MOVIE RESIZER.spec
 dist/
 build/
+app.build/
+app.dist/
+app.inefile-build/
+app.exe
+nuitka-crash-report.xml
