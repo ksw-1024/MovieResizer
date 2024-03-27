@@ -23,6 +23,9 @@ class App(customtkinter.CTk):
     def __init__(self):
         logger.info("Wake up.")
         super().__init__()
+        
+        #GPUの確認
+        print('認識したGPUの個数:',cv2.cuda.getCudaEnabledDeviceCount())
 
         # メンバー変数の設定
         self.fonts = (FONT_TYPE, 15)
